@@ -28,13 +28,9 @@
 
       <div class="result-sort">
         <div class="result-number">
-          {% if numResults %}
-            <span class="bold-small">{{ numResults }}</span>
-              results found {% if query %}for
-            <span class="bold-small">'{{ query }}'{% endif %}</span>
-          {% else %}
-            <span class="bold-small">0</span> results for <span class="bold-small">'{{ query }}'
-          {% endif %}
+            <span class="bold-small">392</span>
+              results found for
+            <span class="bold-small">'Waste'</span>
         </div>
         <div class="dgu-sort">
           <label>
@@ -108,7 +104,6 @@
         <p>Analysis of tonnages of household waste presented in recycling, food waste, garden waste and residual waste bins. Based on sample survey bin contents from a number of houses carried out in November...</p>
       </div>
 
-      {% if numResults > 0 %}
       <div class="pagination">
         <p>Displaying datasets 1 - 20 of 392 in total</p>
         <ul class="pages">
@@ -120,20 +115,6 @@
         </ul>
         
       </div>
-
-
-
-      {% else %}
-        <div class="grid-row zero-results">
-          <div class="suggestions">
-            <p>Please try:</p>
-            <ul class="list list-bullet">
-              <li>Searching again using different words</li>
-              <li>Clearing your filters</li>
-            </ul>
-          </div>
-        </div>
-      {% endif %}
     </div>
 
   </div>
