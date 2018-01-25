@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Results for "{{ query }}" - Find Data Alpha
+{% endblock %}
+
+{% block content %}
+
+<main class="results-page" id="content" role="main">
+  <div class="grid-row masthead">
+    <div class="search-section">
+      <h1 class="heading-large">Search results for</h1>
+      <form id="search-form" action="/search-results" method="GET" class="column-two-thirds">
+        <fieldset>
+          <div id="search-box">
+            <input id="q" name="q" type="text" placeholder="" class="form-control search" autocomplete="off" value="{{query}}"/><button type="submit" class="search-submit">Find data</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  {% block search_result_filters %}
+    {% include "includes/search-results/filters.html" %}
+  {% endblock %}
+
+    <div class="column-two-thirds filters">
+
+      <div class="result-sort">
+        <div class="result-number">
+          {% if numResults %}
+            <span class="bold-small">{{ numResults }}</span>
+              results found {% if query %}for
+            <span class="bold-small">'{{ query }}'{% endif %}</span>
+          {% else %}
+            <span class="bold-small">0</span> results for <span class="bold-small">'{{ query }}'
+          {% endif %}
+        </div>
+        <div class="dgu-sort">
+          <label>
+            <select id="sort-datasets" name="sort">
+              <option value="best">Best match</option>
+              <option>Most recent</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      {% set regExp = r/.*register.*/gi %}
+
+      <div class="result result{% if regExp.test(dataset.title) %} register{% endif %} ">
+        <h2 class="heading-medium">
+          <a href="/datasets/{{ dataset.name }}">Hazardous Waste Movements</a>
+        </h2>
+        <dl class="metadata">
+              <dt>Availability:</dt>
+              <dd><span class="not-released">Not released</span></dd>
+              <dt>Published by:</dt>
+              <dd><a href="#">Environment Agency</a></dd>
+              <dt>Last updated:</dt>
+              <dd>24 February 2016</dd>
+              <dt>Geographical area:</dt>
+              <dd class="not-available">Not available</dd>
+            </dl>
+        <p>Environment &amp; Business - Regulated Industry - Illegals and Waste. The Environment Agency monitors registered hazardous waste movements. The Hazardous Waste Movements dataset contains...</p>
+      </div>
+      <div class="result result{% if regExp.test(dataset.title) %} register{% endif %} ">
+        <h2 class="heading-medium">
+          <a href="/datasets/{{ dataset.name }}">International Waste Shipments from England – indicative</a>
+        </h2>
+        <dl class="metadata">
+              <dt>Published by:</dt>
+              <dd><a href="#">Environment Agency</a></dd>
+              <dt>Last updated:</dt>
+              <dd>15 September 2016</dd>
+              <dt>Geographical area:</dt>
+              <dd class="not-available">Not available</dd>
+            </dl>
+        <p>This record is for Approval for Access product AfA414. International Waste Shipments Records of International shipments permitted under the Transfrontier Shipment of Waste Regulations 2007...</p>
+      </div>
+      <div class="result result{% if regExp.test(dataset.title) %} register{% endif %} ">
+        <h2 class="heading-medium">
+          <a href="/datasets/{{ dataset.name }}">Industrial and commercial waste arisings by waste type and waste management method, 2002</a>
+        </h2>
+        <dl class="metadata">
+              <dt>Published by:</dt>
+              <dd><a href="#">Department for Environment, Food and Rural Affairs</a></dd>
+              <dt>Last updated:</dt>
+              <dd>19 June 2015</dd>
+              <dt>Geographical area:</dt>
+              <dd>England, Scotland, Wales, Northern Ireland</dd>
+            </dl>
+        <p>Industrial and commercial waste arisings by waste type and waste management method, 2002</p>
+      </div>
+      <div class="result result{% if regExp.test(dataset.title) %} register{% endif %} ">
+        <h2 class="heading-medium">
+          <a href="/datasets/{{ dataset.name }}">Waste Composition Analysis - Houses</a>
+        </h2>
+        <dl class="metadata">
+              <dt>Availability:</dt>
+              <dd><span class="not-released">Not released</span></dd>
+              <dt>Published by:</dt>
+              <dd><a href="#">London Borough of Barnet</a></dd>
+              <dt>Last updated:</dt>
+              <dd>29 October 2017</dd>
+              <dt>Geographical area:</dt>
+              <dd>England, Scotland, Wales, Northern Ireland</dd>
+            </dl>
+        <p>Analysis of tonnages of household waste presented in recycling, food waste, garden waste and residual waste bins. Based on sample survey bin contents from a number of houses carried out in November...</p>
+      </div>
+
+      {% if numResults > 0 %}
+      <div class="pagination">
+        <p>Displaying datasets 1 - 20 of 392 in total</p>
+        <ul class="pages">
+          <li>1</li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">...</a></li>
+          <li><a href="#">Next</a></li>
+        </ul>
+        
+      </div>
+
+
+
+      {% else %}
+        <div class="grid-row zero-results">
+          <div class="suggestions">
+            <p>Please try:</p>
+            <ul class="list list-bullet">
+              <li>Searching again using different words</li>
+              <li>Clearing your filters</li>
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}
