@@ -29,14 +29,14 @@
       </div>
     </div>
   </div>
-<div class="grid-row">
+<!-- <div class="grid-row">
   <div class="column-two-thirds">
     <div class="panel-beta">
       <p>This is an improved version of data.gov.uk to make finding data faster and easier. <a href="">Find out more</a> about why we are make this change.</p>
       <p><a href="">Don't show this message again</a></p>
     </div>
   </div>
-</div>
+</div> -->
 
   <div class="grid-row">
     <div class="column-two-thirds">
@@ -52,7 +52,7 @@
       <div class="box">
         <dl class="metadata">
           <dt>Published by:</dt>
-          <dd><a href="">{{ result.organisation.title }}</a></dd>
+          <dd>{{ result.organisation.title }}<!--  — <a href="">View all datasets by this publisher</a> --></dd>
           <dt>Last updated:</dt>
           <dd>{{ result.last_updated }}</dd>
           <dt>Geographical area:</dt>
@@ -66,20 +66,21 @@
         <h2 class="heading-small">
             Summary
         </h2>
-        <p class="summary" style="max-height: 250px; overflow: hidden"> {{ result | generate_summary }} </p>
+        <p class="summary" style="max-height: 250px; overflow: hidden"> {{ result.summary }} </p>
       </div>
       <section class="data-links">
     </div>
 
     <div class="column-one-third related-datasets">
+      <h2 class="heading-small">More from this publisher</h2>
+      <a href="">All datasets from {{ result.organisation.title }}</a>
       <h2 class="heading-small">Related Datasets</h2>
       <ul>
           <li><a href="">Road Safety</a></li>
           <li><a href="">Database of BAC levels in road fatalities</a></li>
           <li><a href="">Scottish Road Accident Statistics</a></li>
-          <li><a href="">Road Casualties in Great Britain: Annual Results</a></li>
       </ul>
-      <h2 class="heading-small">Search UK Government data</h2>
+      <h2 class="heading-small">Search open data</h2>
       {% block top_search %}
         <form id="search-form" action="/search-results" method="GET" class="top-search">
           <fieldset>
@@ -89,7 +90,7 @@
           </fieldset>
         </form>
       {% endblock %}
-      <a href="/search-tips">Search help</a>
+<!--       <a href="/search-tips">Search help</a> -->
     </div>
 
   </div>

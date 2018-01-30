@@ -90,7 +90,7 @@ p.lede {
 
 .box {
   background: #F8F8F8;
-  padding: 25px 30px 15px 30px;
+  padding: 25px 30px 25px 30px;
 }
 
 .toggle {
@@ -181,7 +181,6 @@ table th, table td {
   padding-left: 0;
   vertical-align: top;
   font-size: 16px;
-  white-space: nowrap;
   &:last-child {
     padding-right: 0;
   }
@@ -623,6 +622,11 @@ main.results-page#content {
 
 main.results-page#content .grid-row.masthead {
   padding: 50px 1.5em;
+  &.small {
+    margin-bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }
 
 main.results-page#content .grid-row.masthead .search-section {
