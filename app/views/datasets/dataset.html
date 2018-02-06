@@ -29,14 +29,14 @@
       </div>
     </div>
   </div>
-<div class="grid-row">
+<!-- <div class="grid-row">
   <div class="column-two-thirds">
     <div class="panel-beta">
       <p>This is an improved version of data.gov.uk to make finding data faster and easier. <a href="">Find out more</a> about why we are make this change.</p>
       <p><a href="">Don't show this message again</a></p>
     </div>
   </div>
-</div>
+</div> -->
 
   <div class="grid-row">
     <div class="column-two-thirds">
@@ -67,6 +67,10 @@
             Summary
         </h2>
         <p class="summary" style="max-height: 250px; overflow: hidden"> {{ result | generate_summary }} </p>
+        <div class="publisher-tools">
+          <h2 class="heading-small">Publisher tools</h2>
+          <input class="button" type="submit" value="Edit dataset">
+        </div>
       </div>
       <section class="data-links">
     </div>
