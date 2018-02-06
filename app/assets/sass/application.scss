@@ -364,11 +364,14 @@ main.results-page#content .grid-row.masthead {
   a {
     color:white;
     text-decoration: none;
+    .pipe {
+      opacity: 0.2;
+    }
   }
 }
 
 .phase-tag {
-  margin-left: 1em;
+  margin-left: 5px;
 }
 
 #global-header.with-proposition .header-wrapper .header-global {
@@ -819,4 +822,11 @@ button.button.secondary {
     font-size: 1.5em;
     padding-top: 15px;
   }
+}
+
+.publisher-tools {
+  .button {
+    margin-top: 5px;
+  }
+  margin-bottom: 30px;
 }
